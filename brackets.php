@@ -6,7 +6,7 @@ class Brackets {
      * @var null
      * container for brackets
      */
-    public $brackets = null;
+    private $brackets = null;
 
     public function __construct(){
         $this->prepareBrackets();
@@ -37,7 +37,7 @@ class Brackets {
     /**
      * check brackets
      */
-    public function prepareBrackets(){
+    private function prepareBrackets(){
         if(isset($_GET['brackets'])){
             $this->brackets = preg_replace('/[^\(\)\[\]\{\}]/', '', $_GET['brackets']);
         }
@@ -48,7 +48,7 @@ class Brackets {
      * @return string
      * returns the colored resulting string
      */
-    public function getResponse($result){
+    private function getResponse($result){
         switch($result){
             case 1:
                 $response = '<span style="color:green">String is correct</span>';
